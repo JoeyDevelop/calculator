@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsla(152, 75%, 70%, 1);
+}
+
+#calculator-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  height: 85vh;
+  width: 60vh;
+  background-color: rgba(67, 66, 67, 1);
+}
+
+#display {
+  text-align: right;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  background-color: white;
+  margin: 3vh;
+}
+
+#display > h1 {
+  margin-right: 5px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  color: white;
+  background-color: rgba(111, 109, 110, 1);
+  text-align: center;
+  border: none;
+}
+
+#clear {
+  background-color: red;
+}
