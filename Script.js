@@ -1,102 +1,49 @@
-let btnZero = document.getElementById("numZero");
-btnZero.addEventListener("click", zero);
+let num1 = 0;
+let num2 = 0;
 
-let btnOne = document.getElementById("numOne");
-btnOne.addEventListener("click", one);
-
-let btnTwo = document.getElementById("numTwo");
-btnTwo.addEventListener("click", two);
-
-let btnThree = document.getElementById("numThree");
-btnThree.addEventListener("click", three);
-
-let btnFour = document.getElementById("numFour");
-btnFour.addEventListener("click", four);
-
-let btnFive = document.getElementById("numFive");
-btnFive.addEventListener("click", five);
-
-let btnSix = document.getElementById("numSix");
-btnSix.addEventListener("click", six);
-
-let btnSeven = document.getElementById("numSeven");
-btnSeven.addEventListener("click", seven);
-
-let btnEight = document.getElementById("numEight");
-btnEight.addEventListener("click", eight);
-
-let btnNine = document.getElementById("numNine");
-btnNine.addEventListener("click", nine);
-
-let btnClear = document.getElementById("clear");
-btnClear.addEventListener("click", clearHTML)
-btnClear.addEventListener("click", clearArray)
-
-let btnAdd = document.getElementById("add");
-btnAdd.addEventListener("click", add);
-
-let btnEquals = document.getElementById("equals");
-btnEquals.addEventListener("click", equals)
-
-function zero() {
-     document.getElementById("numbers").innerHTML += "0";
+function add(num1, num2) {
+  let addValue = num1 + num2;
+  let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
+  rounded = rounded.toFixed(2);
+  console.log("add", rounded);
 }
 
-function one() {
-    document.getElementById("numbers").innerHTML += "1";
+function subtract(num1, num2) {
+  let subtractValue = num1 - num2;
+  let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
+  rounded = rounded.toFixed(2);
+  console.log("subtract", rounded)
 }
 
-function two() {
-    document.getElementById("numbers").innerHTML += "2";
+function multiply(num1, num2) {
+  let multiplyValue = num1 * num2;
+  let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
+  rounded = rounded.toFixed(2);
+  console.log("multiply", rounded);
 }
 
-function three() {
-    document.getElementById("numbers").innerHTML += "3";
+function divide(num1, num2) {
+  let divideValue= num1 / num2;
+  let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
+  rounded = rounded.toFixed(2);
+  console.log("divide", rounded);
 }
 
-function four() {
-     document.getElementById("numbers").innerHTML += "4";
-}
-
-function five() {
-    document.getElementById("numbers").innerHTML += "5";
-}
-
-function six() {
-    document.getElementById("numbers").innerHTML += "6";
-}
-
-function seven() {
-    document.getElementById("numbers").innerHTML += "7";
-}
-
-function eight() {
-    document.getElementById("numbers").innerHTML += "8";
-}
-
-function nine() {
-    document.getElementById("numbers").innerHTML += "9";
-}
-
-function clearHTML() {
-    document.getElementById("numbers").innerHTML = " " ;
-}
-
-function clearArray() {
-    calc = [];
-}
-
-const calc = [];
-
-function add() {
-    let num = document.getElementById("numbers").innerHTML;
-    parseInt(num);
-    //console.log(num);
-    calc.push(num);
-    clearHTML();
-    console.log(calc);
-}
-
-function equals(array) {
-    
+function operate(operator, num1, num2) {
+  switch(operator) {
+    case "+":
+      add(num1, num2);
+      break;
+    case "-":
+      subtract(num1, num2);
+      break;
+    case "*":
+      multiply(num1, num2);
+      break;
+    case "/":
+      divide(num1, num2);
+      break;
+    default:
+      alert("ERROR: INVALID OPERATOR PASSING THROUGH SWITCH STATEMENT");
+  }
 }
