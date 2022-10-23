@@ -6,6 +6,7 @@ let addValue = null;
 let displayValue = null;
 let operator = '';
 let tempNum1 = null;
+let placeholder = null;
 
 //Basic math functions
 function add(num1, num2) {
@@ -16,6 +17,7 @@ function add(num1, num2) {
   rounded = rounded.toFixed(2);
   document.getElementById("numbers").textContent = rounded;
   tempNum1 = rounded;
+  placeholder = rounded;
   console.log("add", rounded);
 }
 
@@ -25,6 +27,7 @@ function subtract(num1, num2) {
   rounded = rounded.toFixed(2);
   document.getElementById("numbers").textContent = rounded;
   tempNum1 = rounded;
+  placeholder = rounded;
   console.log("subtract", rounded)
 }
 
@@ -34,6 +37,7 @@ function multiply(num1, num2) {
   rounded = rounded.toFixed(2);
   document.getElementById("numbers").textContent = rounded;
   tempNum1 = rounded;
+  placeholder = rounded;
   console.log("multiply", rounded);
 }
 
@@ -46,6 +50,7 @@ function divide(num1, num2) {
   rounded = rounded.toFixed(2);
   document.getElementById("numbers").textContent = rounded;
   tempNum1 = rounded;
+  placeholder = rounded;
   console.log("divide", rounded);
   }
 }
@@ -113,7 +118,7 @@ function nine() {
 }
 
 //All operator functions should save number before pressed
-function clearBtn() {
+function clearNums() {
   document.getElementById("numbers").textContent = null;
   num1 = null;
   tempNum1 = null;
@@ -134,6 +139,13 @@ function addNums() {
     return;
   } else if (num1 != null && num2 == null) {
     num2 = displayValue;
+
+    operate(operator, num1, num2);
+    clearNums();
+    num1 = placeholder;
+    //num2 = displayValue;
+    operator = "+";
+
     // operate(operator, num1, num2);
     //num1 = tempNum1;
     num1 = Number(num1);
@@ -159,20 +171,27 @@ function subtractNums() {
     return;
   } else if (num1 != null && num2 == null) {
     num2 = displayValue;
-    //operate(operator, num1, num2);
+    
+    operate(operator, num1, num2);
+    clearNums();
+    num1 = placeholder;
+    //num2 = displayValue;
+    operator = "-";
+
     //num1 = tempNum1;
-    num1 = Number(num1);
-    num2 = Number(num2);
-    console.log(num1);
-    console.log(num2);
-    let subtractValue = num1 - num2;
-    let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log(rounded);
-    tempNum1 = rounded;
-    num1 = tempNum1;
-    num2 = null;
-    document.getElementById("numbers").textContent = null;
+
+    // num1 = Number(num1);
+    // num2 = Number(num2);
+    // console.log(num1);
+    // console.log(num2);
+    // let subtractValue = num1 - num2;
+    // let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
+    // rounded = rounded.toFixed(2);
+    // console.log(rounded);
+    // tempNum1 = rounded;
+    // num1 = tempNum1;
+    // num2 = null;
+    // document.getElementById("numbers").textContent = null;
   }
 }
 
@@ -186,20 +205,28 @@ function multiplyNums() {
     return;
   } else if (num1 != null && num2 == null) {
     num2 = displayValue;
+
+    operate(operator, num1, num2);
+    clearNums();
+    num1 = placeholder;
+    //num2 = displayValue;
+    operator = "*";
+
     //operate(operator, num1, num2);
     //num1 = tempNum1;
-    num1 = Number(num1);
-    num2 = Number(num2);
-    console.log(num1);
-    console.log(num2);
-    let multiplyValue = num1 * num2;
-    let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log(rounded);
-    tempNum1 = rounded;
-    num1 = tempNum1;
-    num2 = null;
-    document.getElementById("numbers").textContent = null;
+
+    // num1 = Number(num1);
+    // num2 = Number(num2);
+    // console.log(num1);
+    // console.log(num2);
+    // let multiplyValue = num1 * num2;
+    // let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
+    // rounded = rounded.toFixed(2);
+    // console.log(rounded);
+    // tempNum1 = rounded;
+    // num1 = tempNum1;
+    // num2 = null;
+    // document.getElementById("numbers").textContent = null;
   }
 }
 
@@ -213,24 +240,33 @@ function divideNums() {
     return;
   } else if (num1 != null && num2 == null) {
     num2 = displayValue;
+
+    operate(operator, num1, num2);
+    clearNums();
+    num1 = placeholder;
+    //num2 = displayValue;
+    operator = "/";
+
     //operate(operator, num1, num2);
     //num1 = tempNum1;
-    num1 = Number(num1);
-    num2 = Number(num2);
-    console.log(num1);
-    console.log(num2);
-    if (num1 != null && num2 == 0) {
-      document.getElementById("numbers").textContent = "The simulation is collapsing...";
-    } else if (num1 != null && num2 != 0) {
-      let divideValue = num1 / num2;
-    let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log(rounded);
-    tempNum1 = rounded;
-    num1 = tempNum1;
-    num2 = null;
-    document.getElementById("numbers").textContent = null;
-    }
+
+    // num1 = Number(num1);
+    // num2 = Number(num2);
+    // console.log(num1);
+    // console.log(num2);
+    // if (num1 != null && num2 == 0) {
+    //   document.getElementById("numbers").textContent = "The simulation is collapsing...";
+    // } else if (num1 != null && num2 != 0) {
+    //   let divideValue = num1 / num2;
+    // let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
+    // rounded = rounded.toFixed(2);
+    // console.log(rounded);
+    // tempNum1 = rounded;
+    // num1 = tempNum1;
+    // num2 = null;
+    // document.getElementById("numbers").textContent = null;
+    // }
+
     // let divideValue = num1 / num2;
     // let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
     // rounded = rounded.toFixed(2);
@@ -247,4 +283,8 @@ function equals() {
   displayValue = null
   console.log(num1, num2, operator)
   operate(operator, num1, num2);
+}
+
+function clearAll() {
+  window.location.reload();
 }
