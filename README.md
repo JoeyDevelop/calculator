@@ -1,17 +1,16 @@
 # calculator
-This calculator is being created as part of the Foundations section of The Odin Project Curriculum. This calculator serves as a major test in my Javascript understanding, as well as more practice with HTML and CSS.
+This calculator was created as part of the Foundations section of The Odin Project Curriculum. This calculator served as a major test in my Javascript understanding, as well as providing more practice with HTML and CSS.
+
+-----
 
 Current Functions:
 
-Fully functioning number buttons.
+ - All buttons fully functional;
+ - Completely accurate mathematical functions rounded to two decimal places;
+ - All operators can be chained with each other (12 + 7 - 5 * 3 = 43);
+ - Calculator only evaluates one pair at a time.
 
-All mathematical functions are functional and can be chained with themselves.
-
-
-Current Goals:
-
-Receive correct output when chaining multiple different operands (2 + 2 - 3 = 1)
-
+-----
 
 Known Issues:
 
