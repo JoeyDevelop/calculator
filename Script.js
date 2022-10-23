@@ -16,13 +16,15 @@ function add(num1, num2) {
   rounded = rounded.toFixed(2);
   document.getElementById("numbers").textContent = rounded;
   tempNum1 = rounded;
-  console.log("add", addValue);
+  console.log("add", rounded);
 }
 
 function subtract(num1, num2) {
   let subtractValue = num1 - num2;
   let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
   rounded = rounded.toFixed(2);
+  document.getElementById("numbers").textContent = rounded;
+  tempNum1 = rounded;
   console.log("subtract", rounded)
 }
 
@@ -30,14 +32,22 @@ function multiply(num1, num2) {
   let multiplyValue = num1 * num2;
   let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
   rounded = rounded.toFixed(2);
+  document.getElementById("numbers").textContent = rounded;
+  tempNum1 = rounded;
   console.log("multiply", rounded);
 }
 
 function divide(num1, num2) {
+  if (num1 != null && num2 == 0) {
+    document.getElementById("numbers").textContent = "What have you done...";
+  } else if (num1 != null && num2 != 0) {
   let divideValue= num1 / num2;
   let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
   rounded = rounded.toFixed(2);
+  document.getElementById("numbers").textContent = rounded;
+  tempNum1 = rounded;
   console.log("divide", rounded);
+  }
 }
 
 //Operator Function
@@ -124,15 +134,111 @@ function addNums() {
     return;
   } else if (num1 != null && num2 == null) {
     num2 = displayValue;
+    // operate(operator, num1, num2);
+    //num1 = tempNum1;
     num1 = Number(num1);
     num2 = Number(num2);
     let addValue = num1 + num2;
     let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
     rounded = rounded.toFixed(2);
+    console.log(rounded);
     tempNum1 = rounded;
     num1 = tempNum1;
     num2 = null;
     document.getElementById("numbers").textContent = null;
+  }
+}
+
+function subtractNums() {
+  if (num1 == null) {
+    num1 = displayValue;
+    operator = "-";
+    document.getElementById("numbers").textContent = null;
+    displayValue = null;
+    console.log(num1);
+    return;
+  } else if (num1 != null && num2 == null) {
+    num2 = displayValue;
+    //operate(operator, num1, num2);
+    //num1 = tempNum1;
+    num1 = Number(num1);
+    num2 = Number(num2);
+    console.log(num1);
+    console.log(num2);
+    let subtractValue = num1 - num2;
+    let rounded = Math.round((subtractValue + Number.EPSILON) * 100) / 100;
+    rounded = rounded.toFixed(2);
+    console.log(rounded);
+    tempNum1 = rounded;
+    num1 = tempNum1;
+    num2 = null;
+    document.getElementById("numbers").textContent = null;
+  }
+}
+
+function multiplyNums() {
+  if (num1 == null) {
+    num1 = displayValue;
+    operator = "*";
+    document.getElementById("numbers").textContent = null;
+    displayValue = null;
+    console.log(num1);
+    return;
+  } else if (num1 != null && num2 == null) {
+    num2 = displayValue;
+    //operate(operator, num1, num2);
+    //num1 = tempNum1;
+    num1 = Number(num1);
+    num2 = Number(num2);
+    console.log(num1);
+    console.log(num2);
+    let multiplyValue = num1 * num2;
+    let rounded = Math.round((multiplyValue + Number.EPSILON) * 100) / 100;
+    rounded = rounded.toFixed(2);
+    console.log(rounded);
+    tempNum1 = rounded;
+    num1 = tempNum1;
+    num2 = null;
+    document.getElementById("numbers").textContent = null;
+  }
+}
+
+function divideNums() {
+  if (num1 == null) {
+    num1 = displayValue;
+    operator = "/";
+    document.getElementById("numbers").textContent = null;
+    displayValue = null;
+    console.log(num1);
+    return;
+  } else if (num1 != null && num2 == null) {
+    num2 = displayValue;
+    //operate(operator, num1, num2);
+    //num1 = tempNum1;
+    num1 = Number(num1);
+    num2 = Number(num2);
+    console.log(num1);
+    console.log(num2);
+    if (num1 != null && num2 == 0) {
+      document.getElementById("numbers").textContent = "The simulation is collapsing...";
+    } else if (num1 != null && num2 != 0) {
+      let divideValue = num1 / num2;
+    let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
+    rounded = rounded.toFixed(2);
+    console.log(rounded);
+    tempNum1 = rounded;
+    num1 = tempNum1;
+    num2 = null;
+    document.getElementById("numbers").textContent = null;
+    }
+    // let divideValue = num1 / num2;
+    // let rounded = Math.round((divideValue + Number.EPSILON) * 100) / 100;
+    // rounded = rounded.toFixed(2);
+    // console.log(rounded);
+    // tempNum1 = rounded;
+    // num1 = tempNum1;
+    // num2 = null;
+    // document.getElementById("numbers").textContent = null;
   }
 }
 
