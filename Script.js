@@ -1,14 +1,22 @@
 //Global Variables
-let num1 = 0;
-let num2 = 0;
-let displayValue = '';
+let num1 = null;
+let num2 = null;
+let rounded = null;
+let addValue = null;
+let displayValue = null;
+let operator = '';
+let tempNum1 = null;
 
 //Basic math functions
 function add(num1, num2) {
+  num1 = Number(num1);
+  num2 = Number(num2);
   let addValue = num1 + num2;
   let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
   rounded = rounded.toFixed(2);
-  console.log("add", rounded);
+  document.getElementById("numbers").textContent = rounded;
+  tempNum1 = rounded;
+  console.log("add", addValue);
 }
 
 function subtract(num1, num2) {
@@ -94,4 +102,43 @@ function nine() {
     displayValue = document.getElementById("numbers").textContent;
 }
 
-//All operator buttons should save number before pressed
+//All operator functions should save number before pressed
+function clearBtn() {
+  document.getElementById("numbers").textContent = null;
+  num1 = null;
+  tempNum1 = null;
+  num2 = null;
+  rounded = null;
+  addValue = null;
+  displayValue = '';
+  operator = '';
+}
+
+function addNums() {
+  if (num1 == null) {
+    num1 = displayValue;
+    operator = "+";
+    document.getElementById("numbers").textContent = null;
+    displayValue = null;
+    console.log(num1);
+    return;
+  } else if (num1 != null && num2 == null) {
+    num2 = displayValue;
+    num1 = Number(num1);
+    num2 = Number(num2);
+    let addValue = num1 + num2;
+    let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
+    rounded = rounded.toFixed(2);
+    tempNum1 = rounded;
+    num1 = tempNum1;
+    num2 = null;
+    document.getElementById("numbers").textContent = null;
+  }
+}
+
+function equals() {
+  num2 = displayValue;
+  displayValue = null
+  console.log(num1, num2, operator)
+  operate(operator, num1, num2);
+}
