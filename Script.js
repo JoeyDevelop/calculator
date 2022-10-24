@@ -143,21 +143,12 @@ function addNums() {
     return;
   } else if (num1 != null && num2 == null) {
     num2 = displayValue;
-
     operate(operator, num1, num2);
     clearNums();
     num1 = placeholder;
     operator = "+";
     num1 = Number(num1);
     num2 = Number(num2);
-    let addValue = num1 + num2;
-    let rounded = Math.round((addValue + Number.EPSILON) * 100) / 100;
-    rounded = rounded.toFixed(2);
-    console.log(rounded);
-    tempNum1 = rounded;
-    num1 = tempNum1;
-    num2 = null;
-    document.getElementById("numbers").textContent = null;
   }
 }
 
