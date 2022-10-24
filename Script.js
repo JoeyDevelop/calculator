@@ -147,8 +147,6 @@ function addNums() {
     clearNums();
     num1 = placeholder;
     operator = "+";
-    num1 = Number(num1);
-    num2 = Number(num2);
   }
 }
 
@@ -207,9 +205,9 @@ function divideNums() {
 
 function equals() {
   num2 = displayValue;
-  displayValue = null
   console.log(num1, num2, operator)
   operate(operator, num1, num2);
+  num2 = null;
 }
 
 function clearAll() {
